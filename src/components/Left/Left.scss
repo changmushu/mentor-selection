@@ -1,0 +1,87 @@
+.main-border {
+    display: flex;
+    height: 83.3vh;
+
+    .left-border {
+
+        width: 10vw;
+        margin: 10px;
+        padding: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 20px;
+        box-shadow:
+            0px 0px 3.6px rgba(0, 0, 0, 0.045),
+            0px 0px 10px rgba(0, 0, 0, 0.065),
+            0px 0px 24.1px rgba(0, 0, 0, 0.085),
+            0px 0px 80px rgba(0, 0, 0, 0.13);
+
+        .choose {
+            position: relative;
+            top: 20px;
+
+            :hover {
+                background-color: #f1f1f1;
+                cursor: pointer;
+            }
+
+            .first {
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                transition: all 0.3s;
+                height: 30px;
+                width: 120px;
+            }
+
+            .second {
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                transition: all 0.3s;
+                height: 30px;
+                width: 120px;
+                top: 20px;
+            }
+        }
+    }
+
+    .right-border {
+        position: relative;
+        width: 82vw;
+        margin-left: 15px;
+        padding: 15px;
+        padding-left: 20px;
+        padding-right: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 20px;
+        box-shadow:
+            0px 0px 3.6px rgba(0, 0, 0, 0.045),
+            0px 0px 10px rgba(0, 0, 0, 0.065),
+            0px 0px 24.1px rgba(0, 0, 0, 0.085),
+            0px 0px 80px rgba(0, 0, 0, 0.13);
+
+        .right-table {
+            width: 500px;
+            .right-tr:nth-child(odd){
+                background-color: #e2e2e2;
+            }
+
+            .right-tr {
+                .right-td {
+                }
+            }
+        }
+
+    }
+}
