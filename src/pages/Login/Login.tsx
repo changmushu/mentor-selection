@@ -27,9 +27,16 @@ const Login = () => {
     });
   }
 
+
+
   function handleClick(e) {
     const realStudent = JSON.parse(localStorage.getItem('student'));
-    if (realStudent.account === student.account && realStudent.password === student.password) {
+    const hasChange = localStorage.getItem('change')
+    const newPassword = localStorage.getItem('newPassword')
+    if (realStudent.account === student.account && realStudent.password === student.password && !hasChange) {
+      navigate('/main');
+      localStorage.setItem("token", "success");
+    } else if (realStudent.account === student.account && newPassword === student.password && hasChange) {
       navigate('/main');
       localStorage.setItem("token", "success");
     }
@@ -41,7 +48,7 @@ const Login = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">少年时我们追求激情，成熟后却迷恋平庸，在我们寻找，伤害，背离之后，还能一如既往的相信爱情，这是一种勇气。每个人都有属于自己的一片森林，迷失的人迷失了，相逢的人会再相逢。(学号密码均为2020211802)</p>
+            <p className="py-6">(学号密码均为2020211802)</p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">

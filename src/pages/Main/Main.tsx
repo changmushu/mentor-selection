@@ -16,7 +16,9 @@ const Main = () => {
       navigate('/');
     }
     const realStudent = JSON.parse(localStorage.getItem('student'));
-    if (realStudent.account === realStudent.password) {
+    const hasChange = localStorage.getItem('change')
+    const newPassword = localStorage.getItem('newPassword')
+    if (realStudent.account === realStudent.password & !hasChange || realStudent.account === newPassword) {
       const dialog = document.querySelector('#my_modal_2').show();
     }
   }, [])

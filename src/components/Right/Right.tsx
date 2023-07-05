@@ -1,11 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 import { useState } from 'react';
 
 const Right = () => {
   const [level, setLevel] = useState(1);
 
-  const [success, setSuccess] = useState(0)
+  const [success, setSuccess] = useState(0);
+
+  const navigate = useNavigate();
 
   const [firstPassword, setFirstPassword] = useState({
     password: '',
@@ -27,13 +29,19 @@ const Right = () => {
     });
   }
 
+  console.log(firstPassword.password)
+
   function handleClick(e) {
-    if (firstPassword.password === secondPassword.password) {
-      setSuccess(0)
+    if (firstPassword.password == secondPassword.password) {
+      setSuccess(0);
+      localStorage.setItem("change","hasChange");
+      localStorage.setItem("newPassword",firstPassword.password);
+      navigate('/');
     } else {
       setSuccess(1)
     }
   }
+
 
   return (
     <div className="main-border">
