@@ -3,11 +3,9 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useState } from 'react';
 
 const Right = () => {
-  const [level, setLevel] = useState(1);
+  const [level, setLevel] = useState(localStorage.getItem("level"));
 
   const [success, setSuccess] = useState(0);
-
-  const [isChoose, setIsChoose] = useState(localStorage.getItem("isChoose"))
 
   const navigate = useNavigate();
 
@@ -35,8 +33,8 @@ const Right = () => {
   function handleClick(e) {
     if (firstPassword.password == secondPassword.password) {
       setSuccess(0);
-      localStorage.setItem("changeS", "hasChange");
-      localStorage.setItem("newSPassword", firstPassword.password);
+      localStorage.setItem("changeT", "hasChange");
+      localStorage.setItem("newTPassword", firstPassword.password);
       navigate('/');
     } else {
       setSuccess(1)
@@ -55,15 +53,10 @@ const Right = () => {
             </div> */}
       <ul className="menu bg-base-200 w-56 rounded-box">
         <li>
-          <h2 className="menu-title">{level === 1 ? "学生" : "教师"}</h2>
+          <h2 className="menu-title">{level === "1" ? "学生" : "教师"}</h2>
           <ul>
-            {isChoose === "yes" ?
-              <li className="w-20"><a><NavLink to="/main">你的导师</NavLink></a></li>
-              :
-              <li className="w-20"><a><NavLink to="/main">选择导师</NavLink></a></li>
-            }
-
-            <li className="w-20"><a><NavLink to="/change">修改密码</NavLink></a></li>
+            <li className="w-20"><a><NavLink to="/teacher">查看学生</NavLink></a></li>
+            <li className="w-20"><a><NavLink to="/teacher/change">修改密码</NavLink></a></li>
           </ul>
         </li>
       </ul>

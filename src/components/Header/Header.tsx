@@ -3,12 +3,12 @@ import Levelone from "../LevelOne/LevelOne"
 import LevelTwo from "../LevelTwo/LevelTwo"
 import { useState, useEffect } from 'react';
 import moment from 'moment'
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 
 const Header = () => {
     const navigate = useNavigate();
-    const [level, setLevel] = useState(1);
+    const [level, setLevel] = useState(localStorage.getItem("level"));
 
     const [h, setH] = useState(moment().hours());
     const [m, setM] = useState(moment().minutes());
@@ -25,7 +25,7 @@ const Header = () => {
         }, 1000);
     }, []);
 
-    function handleLogout(e){
+    function handleLogout(e) {
         localStorage.setItem("token", "fall");
         navigate('/');
     }
@@ -33,7 +33,7 @@ const Header = () => {
     return (
         <div className="navbar bg-base-100">
             <div className="flex-1">
-                <a className="btn btn-ghost normal-case text-xl">{level === 1 ? "学生选课系统" : "教师选课系统"}</a>
+                <a className="btn btn-ghost normal-case text-xl">{level === "1" ? "学生选导师系统" : "教师系统"}</a>
                 <span className="countdown font-mono text-2xl">
                     <span style={{ "--value": h }}></span>:
                     <span style={{ "--value": m }}></span>:
@@ -48,7 +48,8 @@ const Header = () => {
                         </div>
                     </label>
                     <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                        <li><a>Settings</a></li>
+                        {level === "1" ? <li><NavLink to="/change"><a>Settings</a></NavLink></li> : <li><NavLink to="/teacher/change"><a>Settings</a></NavLink></li>}
+                        
                         <li><a onClick={handleLogout}>Logout</a></li>
                     </ul>
                 </div>

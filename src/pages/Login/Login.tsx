@@ -31,14 +31,28 @@ const Login = () => {
 
   function handleClick(e) {
     const realStudent = JSON.parse(localStorage.getItem('student'));
-    const hasChange = localStorage.getItem('change')
-    const newPassword = localStorage.getItem('newPassword')
-    if (realStudent.account === student.account && realStudent.password === student.password && !hasChange) {
+    const hasChangeS = localStorage.getItem('changeS')
+    const hasChangeT = localStorage.getItem('changeT')
+    const newSPassword = localStorage.getItem('newSPassword')
+    const newTPassword = localStorage.getItem('newTPassword')
+    const realTeacher = JSON.parse(localStorage.getItem('teacherA'));
+    if (realStudent.account === student.account && realStudent.password === student.password && !hasChangeS) {
       navigate('/main');
       localStorage.setItem("token", "success");
-    } else if (realStudent.account === student.account && newPassword === student.password && hasChange) {
+      localStorage.setItem("level", "1");
+    } else if (realStudent.account === student.account && newSPassword === student.password && hasChangeS) {
       navigate('/main');
       localStorage.setItem("token", "success");
+      localStorage.setItem("level", "1");
+    }
+    if (realTeacher.account === student.account && realTeacher.password === student.password && !hasChangeT) {
+      navigate('/teacher');
+      localStorage.setItem("token", "success");
+      localStorage.setItem("level", "2");
+    } else if (realTeacher.account === student.account && newTPassword === student.password && hasChangeT) {
+      navigate('/teacher');
+      localStorage.setItem("token", "success");
+      localStorage.setItem("level", "2");
     }
   }
 
@@ -48,7 +62,9 @@ const Login = () => {
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold">Login now!</h1>
-            <p className="py-6">(学号密码均为2020211802)</p>
+            <p className="py-2">学生端学号密码均为2020211802</p>
+            <p className="py-1">教师端学号密码均为admin</p>
+            <p className="py-1">退出请点击右上角头像</p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">

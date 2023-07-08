@@ -15,6 +15,10 @@ const Main = () => {
     if (token === "fall" || token === null) {
       navigate('/');
     }
+    const isChoose = localStorage.getItem("isChoose");
+    if (isChoose === "yes") {
+      navigate('/main/choose');
+    }
     const realStudent = JSON.parse(localStorage.getItem('student'));
     const hasChange = localStorage.getItem('change')
     const newPassword = localStorage.getItem('newPassword')
