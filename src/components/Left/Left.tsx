@@ -13,7 +13,7 @@ const Left = () => {
             name: "李莉",
             country: "China",
             choose: 10,
-            haschoose: 9,
+            haschoose: 8,
             detail: "李莉，博士，教授，硕士生导师，东北林业大学青年成栋名师、软件工程专业主任、专业党支部书记。美国加州大学（河滨）访问学者。主持和参加国家级、省部级各类科研、教研项目15项，各级各类获奖10余项，作为第一作者发表SCI、EI、中文核心期刊等论文20余篇、主编教材4部。主持国家级一流本科课程、黑龙江省线上线下精品课程、东北林业大学一流本科课程、东北林业大学重点课程。获得第二届全国高校混合式教学设计创新大赛一等奖、华为产学合作专项奖；2次入选黑龙江省在线教学优秀案例；多次获得东北林业大学教学质量优秀奖、教学改革奖、教书育人先进个人称号。",
             isSelected: false,
             picture: "https://ccec.nefu.edu.cn/__local/D/CC/CD/111CCD3716FBCD4A97948BBE090_4DC1EC65_CA0E3.png"
@@ -140,12 +140,6 @@ const Left = () => {
         }
     }
 
-    function handleClickQ(e) {
-        localStorage.setItem("isChoose", "no");
-        location.reload()
-    }
-
-
 
     function handleChoose(teacherId) {
         setTeachers(prevTeachers => {
@@ -271,11 +265,7 @@ const Left = () => {
                     </table>
                 </div>
                 <br />
-                <div>
-                    <button className="btn" onClick={handleClickQ}>取消</button>
-                    <span>          </span>
-                    <button className="btn" onClick={() => window.my_modal_5.showModal()}>确认</button>
-                </div>
+                <button className="btn" onClick={() => window.my_modal_5.showModal()}>确认</button>
 
 
                 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
