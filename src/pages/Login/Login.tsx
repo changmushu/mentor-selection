@@ -56,6 +56,17 @@ const Login = () => {
     }
   }
 
+  function handleClickChongzhi(e){
+    localStorage.removeItem("changeT")
+    localStorage.removeItem("newSPassword")
+    localStorage.removeItem("newTPassword")
+    localStorage.removeItem("level")
+    localStorage.removeItem("changeS")
+    localStorage.removeItem("isChoose")
+    localStorage.removeItem("teacher")
+    localStorage.removeItem("token")
+  }
+
   return (
     <form >
       <div className="hero min-h-screen bg-base-200">
@@ -65,6 +76,7 @@ const Login = () => {
             <p className="py-2">学生端学号密码均为2020211802</p>
             <p className="py-1">教师端学号密码均为admin</p>
             <p className="py-1">退出请点击右上角头像</p>
+            <button className="btn btn-primary" onClick={handleClickChongzhi}>重置</button>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
             <div className="card-body">
