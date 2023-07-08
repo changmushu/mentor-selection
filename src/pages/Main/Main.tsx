@@ -11,7 +11,6 @@ const Main = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    console.log(token)
     if (token === "fall" || token === null) {
       navigate('/');
     }
@@ -20,9 +19,8 @@ const Main = () => {
       navigate('/main/choose');
     }
     const realStudent = JSON.parse(localStorage.getItem('student'));
-    const hasChange = localStorage.getItem('change')
-    const newPassword = localStorage.getItem('newPassword')
-    if (realStudent.account === realStudent.password & !hasChange || realStudent.account === newPassword) {
+    const newSPassword = localStorage.getItem('newSPassword')
+    if (realStudent.password !== newSPassword && !newSPassword) {
       const dialog = document.querySelector('#my_modal_2').show();
     }
   }, [])

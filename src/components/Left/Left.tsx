@@ -281,7 +281,7 @@ const Left = () => {
                 <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
                     <form method="dialog" className="modal-box">
                         <h3 className="font-bold text-lg">警告！</h3>
-                        <p className="py-4">选择导师后将无法更改，请慎重选择！！！（没写完）</p>
+                        <p className="py-4">选择导师后将无法更改，请慎重选择！！！</p>
                         <div className="modal-action">
                             {/* if there is a button in form, it will close the modal */}
                             <button className="btn" onClick={handleClick}>确定</button>
